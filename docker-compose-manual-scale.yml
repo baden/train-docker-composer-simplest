@@ -1,0 +1,43 @@
+hp:
+  image: dockercloud/haproxy
+  links:
+    - web1:web1
+    - web2:web2
+    - web3:web3
+    - web4:web4
+    - web5:web5
+  ports:
+    - "8080:80"
+
+web1:
+  image: dockercloud/quickstart-python
+  hostname: web1
+  links:
+    - redis
+
+web2:
+  image: dockercloud/quickstart-python
+  hostname: web2
+  links:
+    - redis
+
+web3:
+  image: dockercloud/quickstart-python
+  hostname: web3
+  links:
+    - redis
+
+web4:
+  image: dockercloud/quickstart-python
+  hostname: web4
+  links:
+    - redis
+
+web5:
+  image: dockercloud/quickstart-python
+  hostname: web5
+  links:
+    - redis
+
+redis:
+  image: redis

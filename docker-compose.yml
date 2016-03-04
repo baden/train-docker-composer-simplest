@@ -1,0 +1,14 @@
+hp:
+  image: dockercloud/haproxy
+  links:
+    - web
+  ports:
+    - "8080:80"
+
+web:
+  image: dockercloud/quickstart-python
+  links:
+    - redis
+
+redis:
+  image: redis
